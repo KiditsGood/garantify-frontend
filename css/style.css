@@ -50,11 +50,12 @@ body, html{
     display: flex;
     align-items: center;
     gap: 46px;
+    position: relative;
 }
 .header__switch-language{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    position: relative;
 }
 .header__switch-language--visible{
     display: flex;
@@ -67,6 +68,13 @@ body, html{
     padding: 9px 15px;
     transition: 0.2s;
 }
+.header__switch-language--visible.active{
+    border: 1px solid #6642F4;
+    border-radius: 15px 15px 0 0;
+}
+.header__switch-language--visible.active:hover{
+    cursor: pointer;
+}
 .header__switch-language--visible:hover{
     border: 1px solid #6642F4;
     cursor: pointer;
@@ -75,12 +83,40 @@ body, html{
     font-size: 16px;
     line-height: 23px;
     color: white;
+    transition: 0.2s;
 }
 .language__icon{
     width: 17px;
+    transition: 0.2s;
+}
+.language__icon.active{
+    transform: rotate(180deg);
 }
 .header__switch-language--hidden{
     display: none;
+    position: absolute;
+    top: 43px;
+    width: 100%;
+}
+.language__hidden-item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.language__hidden-item > .language__text:hover{
+    color: #6642F4;
+    cursor: pointer;
+}
+.language__hidden{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 9px 15px;
+    background: black;
+    border-left: 1px solid #6642F4;
+    border-right: 1px solid #6642F4;
+    border-bottom: 1px solid #6642F4;
+    border-radius: 0 0 15px 15px;
 }
 .main{
     display: flex;
@@ -96,6 +132,7 @@ body, html{
     line-height: 155px;
     color: white;
     text-shadow: 0 7px 85px #000000;
+    text-align: center;
 }
 .main__desc{
     font-size: 36px;
@@ -172,6 +209,9 @@ body, html{
     align-items: center;
     gap: 10px;
     align-self: flex-end;
+    justify-content: space-between;
+    max-width: 368px;
+    width: 100%;
 }
 .instructions__step-item{
     font-size: 24px;
@@ -186,6 +226,9 @@ body, html{
     align-items: center;
     justify-content: center;
 }
+.instructions__step-image:last-child{
+    display: none;
+}
 .instructions__step-item:hover{
     background: rgba(79, 38, 199, 1);
 }
@@ -193,7 +236,7 @@ body, html{
     background: rgba(79, 38, 199, 1);
 }
 .step__right{
-    padding-right: 3%;
+    padding-right: 6.5%;
 }
 .stats{
     max-width: 1390px;
@@ -228,6 +271,8 @@ body, html{
     width: 100%;
     max-width: 375px;
     padding: 43px 0;
+    height: 328px;
+    box-sizing: border-box;
 }
 .stats__grid-item--name{
     font-size: 100px;
@@ -235,7 +280,7 @@ body, html{
     line-height: 121px;
     color: #6642F4;
     border-bottom: 1px solid rgba(78, 78, 78, 1);
-    width: 220px;
+    width: 327px;
     text-align: center;
     padding-bottom: 30px;
 }
@@ -355,4 +400,8 @@ body, html{
 }
 .footer__logo-image{
     width: 43px;
+}
+.slider--outer{
+    max-width: 1440px;
+    margin: 0 auto;
 }
